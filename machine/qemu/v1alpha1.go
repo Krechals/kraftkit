@@ -98,7 +98,7 @@ func (service *machineV1alpha1Service) Create(ctx context.Context, machine *mach
 	}
 
 	if qemuVersion.LessThan(QemuVersion4_2_0) {
-		return machine, fmt.Errorf("unsupported QEMU version: %s: please upgrade to a newer version", qemuVersion.String())
+		return machine, fmt.Errorf("unsupported QEMU version: %s: please upgrade to a version >= 4.2.0", qemuVersion.String())
 	}
 
 	// Determine the QEMU machine type to use
